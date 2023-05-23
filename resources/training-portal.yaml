@@ -1,7 +1,7 @@
 apiVersion: learningcenter.tanzu.vmware.com/v1beta1
 kind: TrainingPortal
 metadata:
-  name: partnerworkshop-evoila
+  name: tap-workshop
   annotations:
     kapp.k14s.io/update-strategy: always-replace
 spec:
@@ -16,11 +16,6 @@ spec:
     sessions:
       maximum: 45
   workshops:
-    - name: tapworkshop-developers
-      expires: 360m
-      orphaned: 120m
-      capacity: 45
-      reserved: 2
     - name: tapworkshop-operators
       expires: 360m
       orphaned: 120m

@@ -2,7 +2,7 @@
 <p style="color:blue"><strong> Click here to test the execution in terminal</strong></p>
 
 ```execute-1
-echo "Hello, Welcome to Partner workshop session"
+echo "Hello, Welcome to TAP Operator Workshop Session"
 ```
 
 <p style="color:blue"><strong> Click here to check the Tanzu version</strong></p>
@@ -54,7 +54,7 @@ export DOCKER_REGISTRY_PASSWORD=
 ```
 
 ###### Create Kubernetes cluster with 3 nodes and it should take around 5-10 mins to complete, please wait for it to deploy successfully. 
- 
+###### NOTE: Make sure you have the Resource Group (RG) created where the cluster is going to get deploy. For example `tapdemo-cluster-RG` in this case.
 ```execute
 az aks create --resource-group tapdemo-cluster-RG --name {{ session_namespace }}-cluster --subscription a3ac57b4-348f-471f-9938-9cf757e2d033 --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size Standard_B8ms -z 1 --enable-cluster-autoscaler --min-count 3 --max-count 3
 ```
@@ -149,13 +149,13 @@ kubectl get pods -n secretgen-controller
 <p style="color:blue"><strong> Changes to tap values file" </strong></p>
 
 ```execute
-sed -i -r "s/password-registry/$DOCKER_REGISTRY_PASSWORD/g" $HOME/tap-values.yaml
+sed -i -r 's/password-registry/$DOCKER_REGISTRY_PASSWORD/g' $HOME/tap-values.yaml
 ```
 
 ```execute
-sed -i -r "s/password-registry/$DOCKER_REGISTRY_PASSWORD/g" $HOME/autoheal.sh
+sed -i -r 's/password-registry/$DOCKER_REGISTRY_PASSWORD/g' $HOME/autoheal.sh
 ```
 
 ```execute
-sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tap-values.yaml
+sed -i -r 's/SESSION_NAME/$SESSION_NAME/g' $HOME/tap-values.yaml
 ```
